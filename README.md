@@ -1,25 +1,55 @@
 # Fine Data Generation
 
-(This repo is based on Stable Diffusion and [attend-and-excite](https://github.com/yuval-alaluf/Attend-and-Excite))
+This repo is a small, practical playground for:
 
-Demo repo showing how to:
+- running **text-to-image generation** with Stable Diffusion-style models
+- comparing *how different methods/models respond to the same prompt*
+- fine-tuning a model with a **LoRA** to generate images in the style/content of *your* dataset
 
-- generate images with different Stable Diffusion based models
-- fine-tune Stable Diffusion with **LoRA** to generate a specific kind of data
+It includes an implementation inspired by (and conceptually based on) [Attend-and-Excite](https://github.com/yuval-alaluf/Attend-and-Excite) for prompt-guided attention control.
+
+## What you can do here
+
+1) **Compare models/methods fairly** (same prompt + same seeds) and visualize the results as a grid.
+
+2) **Train a LoRA** (Diffusers + Accelerate) on your own data, then:
+     - run inference with the trained LoRA
+     - do a simple explainability check by replacing phrases in the prompt and plotting difference heatmaps
 
 ## Notebooks
 
-- [notebooks/compare_models.ipynb](notebooks/compare_models.ipynb)
-    - same prompt + same seeds across models
-  
-![Different models with the same prompt](https://github.com/NLeSC-Knowledge-Development/fine-data-generation/blob/4603fc8db77a70f7bdea426f71c21b3ca6c65d25/assets/model_compare.png)
+### 1) Compare multiple models on the same prompt
 
-- [notebooks/train_sd35_lora.ipynb](notebooks/train_sd35_lora.ipynb)
-    - LoRA training (Diffusers + Accelerate)
-    - load the LoRA for inference
+- Notebook: [notebooks/compare_models.ipynb](notebooks/compare_models.ipynb)
+- What it shows: a side-by-side figure where **rows = seeds** and **columns = models/methods**.
 
-![Effect of fine tuning](https://github.com/NLeSC-Knowledge-Development/fine-data-generation/blob/4603fc8db77a70f7bdea426f71c21b3ca6c65d25/assets/lora.png)
-![Explainability](https://github.com/NLeSC-Knowledge-Development/fine-data-generation/blob/4603fc8db77a70f7bdea426f71c21b3ca6c65d25/assets/expl.png)
+The notebook compares (depending on what you have access to):
+- Stable Diffusion v1.4 (standard)
+- Attend-and-Excite on SD v1.4
+- Stable Diffusion 3.5 Medium (optional; requires Hugging Face access)
+
+Figure produced by this workflow:
+
+![Different models with the same prompt](assets/model_compare.png)
+
+### 2) Train + use a LoRA (SD 3.5)
+
+- Notebook: [notebooks/train_sd35_lora.ipynb](notebooks/train_sd35_lora.ipynb)
+- What it does:
+    - validates your dataset folder (images + optional metadata.jsonl)
+    - generates a non-interactive Accelerate config
+    - prints a reproducible `accelerate launch ...` command for LoRA training
+    - after training: finds LoRA weights, loads them for inference, and runs comparisons
+
+This notebook does **not** download or include a dataset — you point it at your own images.
+
+Example outputs from the notebook:
+
+![Effect of fine tuning](assets/lora.png)
+
+The notebook also includes a lightweight explainability view: change a phrase in the prompt (e.g. “normal-sized” → “enlarged”) and visualize where the image changes most.
+
+![Explainability](assets/expl.png)
 
 ## Install
 
