@@ -12,14 +12,14 @@ Demo repo showing how to:
 - [notebooks/compare_models.ipynb](notebooks/compare_models.ipynb)
     - same prompt + same seeds across models
   
-![Different models with the same prompt](link)
+![Different models with the same prompt](https://github.com/NLeSC-Knowledge-Development/fine-data-generation/blob/4603fc8db77a70f7bdea426f71c21b3ca6c65d25/assets/model_compare.png)
 
 - [notebooks/train_sd35_lora.ipynb](notebooks/train_sd35_lora.ipynb)
     - LoRA training (Diffusers + Accelerate)
     - load the LoRA for inference
 
-![Effect of fine tuning](link)
-![Explainability](link)
+![Effect of fine tuning](https://github.com/NLeSC-Knowledge-Development/fine-data-generation/blob/4603fc8db77a70f7bdea426f71c21b3ca6c65d25/assets/lora.png)
+![Explainability](https://github.com/NLeSC-Knowledge-Development/fine-data-generation/blob/4603fc8db77a70f7bdea426f71c21b3ca6c65d25/assets/expl.png)
 
 ## Install
 
