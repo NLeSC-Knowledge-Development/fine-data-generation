@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fine-data-generation"
+version = "0.1.0"
+description = "Notebook-first demo for fine-tuning Stable Diffusion (LoRA) and running Attend-and-Excite style comparisons."
+readme = "README.md"
+requires-python = ">=3.9,<3.13"
+license = { text = "MIT" }
+authors = [
+  { name = "NLeSC / Contributors" }
+]
+keywords = ["stable-diffusion", "diffusers", "lora", "fine-tuning", "text-to-image", "notebooks"]
+
+# Keep this in sync with requirements.txt (pip -r requirements.txt also works).
+dependencies = [
+  "torch>=2.0.0",
+  "torchvision>=0.15.0",
+  "diffusers>=0.36.0",
+  "transformers>=4.41.2",
+  "accelerate>=0.31.0",
+  "huggingface_hub>=0.23.0",
+  "peft>=0.17.0",
+  "safetensors>=0.4.0",
+  "datasets>=2.20.0",
+  "tensorboard>=2.13.0",
+  "PyYAML>=6.0",
+  "Jinja2>=3.1.0",
+  "sentencepiece>=0.1.99",
+  "protobuf>=3.20.0",
+  "ftfy>=6.0.0",
+  "matplotlib>=3.3.0",
+  "numpy>=1.23.0",
+  "Pillow>=8.0.0",
+  "packaging>=20.0",
+  "einops>=0.6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "jupyter>=1.0.0",
+  "notebook>=7.0.0",
+  "ipykernel>=6.0.0",
+]
+
+# Optional dependencies used by non-notebook helpers:
+cli = ["pyrallis>=0.3.0"]
+vis = ["opencv-python>=4.5.0"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

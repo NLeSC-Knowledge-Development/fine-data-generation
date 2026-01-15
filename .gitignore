@@ -1,0 +1,41 @@
+# Virtual Environments
+venv/
+.venv/
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Packaging artifacts
+*.egg-info/
+build/
+dist/
+
+# Notebook artifacts
+.ipynb_checkpoints/
+
+# Editor configs
+.vscode/
+.idea/
+
+# Environment files
+.env
+.env.local
+
+# Model checkpoints and outputs
+notebooks/outputs/
+checkpoints/
+logs/
+*.ckpt
+*.pth
+*.pt
+*.safetensors
+
+# OS / temp files
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+*.swp
+*~
