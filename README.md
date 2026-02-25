@@ -50,10 +50,10 @@ Example outputs from the notebook:
 The notebook also includes a lightweight explainability view: change a phrase in the prompt (e.g. "normal-sized" → "enlarged") and visualize where the image changes most. Each feature produces a row showing the baseline, the two variations, and difference heatmaps:
 
 ![Explainability – ventricles](assets/expl_ventricles.png)
-![Explainability – skull bone](assets/expl_skull_bone.png)
-![Explainability – brain area](assets/expl_brain_area.png)
+![Explainability – skull bone](assets/expl_skull.png)
+![Explainability – brain area](assets/expl_brain.png)
 ![Explainability – lesions](assets/expl_lesions.png)
-![Explainability – CSF](assets/expl_csf.png)
+![Explainability – CSF](assets/expl_central_csf.png)
 
 ## Install
 
